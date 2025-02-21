@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_mi2c/Screen/page_dua.dart';
+import 'package:flutter_app_mi2c/Screen/page_empat.dart';
+import 'package:flutter_app_mi2c/Screen/page_satu.dart';
+import 'package:flutter_app_mi2c/Screen/page_tiga.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,9 +56,86 @@ class PageUtama extends StatelessWidget {
         ),
         backgroundColor: Colors.purple,
       ),
-      
       body: Center(
-        child: Text("Halo Selamat Datang di Apps MI 2C"),
+        child: Column(
+          children: [
+            SizedBox(height: 50,),
+            Text("Halo Selamat Datang di Apps MI 2C"),
+            //untuk atur jarak dari stu widget ke widget lain
+            SizedBox(height: 10,),
+            MaterialButton(onPressed: (){
+              //pindah ke page satu
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+                => PageSatu()
+              ));
+
+              //Lat buat page 2 dan 3, kemudian tambahkan navigator.
+            },
+              color: Colors.purple,
+              child: Text('Page 1',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white
+                ),
+              ),
+            ),
+
+            SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: MaterialButton(onPressed: (){
+                //code diarahkan kemana
+                Navigator.push(context, MaterialPageRoute(builder: (context)
+                => PageDua()
+                ));
+              },
+                elevation: 18.0,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                // color: Colors.purple,
+                //color default putih : 0xFFFFFFFF
+                color: Color(0xFFB63131),
+                // color: Color(0xFFA81449),
+                clipBehavior: Clip.antiAlias,
+                child: Text('Page 2',
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 10,),
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageTiga()
+              ));
+            },
+              color: Colors.purple,
+              child: Text('Page 3',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white
+                ),
+              ),
+            ),
+
+            SizedBox(height: 10,),
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageListEmpat()
+              ));
+            },
+              color: Colors.purple,
+              child: Text('Page 4',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white
+                ),
+              ),
+            ),
+          ],
+        ),
         //child :  hanya bisa menampung 1 widget
         //children : bisa menampung lebih dari 1 widget (column, row, list)
       ),
