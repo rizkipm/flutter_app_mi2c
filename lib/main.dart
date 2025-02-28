@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_mi2c/Screen/page_cache_image.dart';
 import 'package:flutter_app_mi2c/Screen/page_dua.dart';
 import 'package:flutter_app_mi2c/Screen/page_empat.dart';
+import 'package:flutter_app_mi2c/Screen/page_form_login.dart';
+import 'package:flutter_app_mi2c/Screen/page_gambar.dart';
+import 'package:flutter_app_mi2c/Screen/page_list.dart';
+import 'package:flutter_app_mi2c/Screen/page_notification.dart';
 import 'package:flutter_app_mi2c/Screen/page_satu.dart';
 import 'package:flutter_app_mi2c/Screen/page_tiga.dart';
+import 'package:flutter_app_mi2c/Screen/page_url_image.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,6 +62,49 @@ class PageUtama extends StatelessWidget {
         ),
         backgroundColor: Colors.purple,
       ),
+      //navigatin drawer
+      drawer: SizedBox(
+        width: 250,
+        child: Drawer(
+          child: ListView(
+            children: [
+              UserAccountsDrawerHeader(accountName: Text("Rizki Syaputra"),
+                  accountEmail: Text("rizki@udacoding.com"),
+                currentAccountPicture: CircleAvatar(
+                  radius: 55,
+                  child: Icon(Icons.person,
+                    color: Colors.green,
+                    size: 65,
+                  ),
+                ),
+              ),
+
+              ListTile(
+                title: Text("Page List "),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)
+                  => PageList()
+                  ));
+                },
+              ),
+              Divider(),
+              ListTile(
+                title: Text("Page Login"),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)
+                  => PageFormLogin()
+                  ));
+                },
+              ),
+              Divider(),
+              ListTile(
+                title: Text("Page 3"),
+              ),
+            ],
+          ),
+        ),
+      ),
+
       body: Center(
         child: Column(
           children: [
@@ -128,6 +177,66 @@ class PageUtama extends StatelessWidget {
             },
               color: Colors.purple,
               child: Text('Page 4',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white
+                ),
+              ),
+            ),
+
+            SizedBox(height: 10,),
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageGambar()
+              ));
+            },
+              color: Colors.purple,
+              child: Text('Page Gambar',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white
+                ),
+              ),
+            ),
+
+            SizedBox(height: 10,),
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageUrlImage()
+              ));
+            },
+              color: Colors.purple,
+              child: Text('Page Url Image',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white
+                ),
+              ),
+            ),
+
+            SizedBox(height: 10,),
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageCacheImage()
+              ));
+            },
+              color: Colors.purple,
+              child: Text('Page Cache Image',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white
+                ),
+              ),
+            ),
+
+            SizedBox(height: 10,),
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageNotification()
+              ));
+            },
+              color: Colors.purple,
+              child: Text('Page Toast',
                 style: TextStyle(
                     fontSize: 14,
                     color: Colors.white
