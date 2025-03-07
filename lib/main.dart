@@ -3,8 +3,10 @@ import 'package:flutter_app_mi2c/Screen/page_cache_image.dart';
 import 'package:flutter_app_mi2c/Screen/page_dua.dart';
 import 'package:flutter_app_mi2c/Screen/page_empat.dart';
 import 'package:flutter_app_mi2c/Screen/page_form_login.dart';
+import 'package:flutter_app_mi2c/Screen/page_form_register.dart';
 import 'package:flutter_app_mi2c/Screen/page_gambar.dart';
 import 'package:flutter_app_mi2c/Screen/page_list.dart';
+import 'package:flutter_app_mi2c/Screen/page_nav_bar.dart';
 import 'package:flutter_app_mi2c/Screen/page_notification.dart';
 import 'package:flutter_app_mi2c/Screen/page_satu.dart';
 import 'package:flutter_app_mi2c/Screen/page_tiga.dart';
@@ -98,7 +100,12 @@ class PageUtama extends StatelessWidget {
               ),
               Divider(),
               ListTile(
-                title: Text("Page 3"),
+                title: Text("Page Register"),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)
+                  => PageFormRegister()
+                  ));
+                },
               ),
             ],
           ),
@@ -237,6 +244,21 @@ class PageUtama extends StatelessWidget {
             },
               color: Colors.purple,
               child: Text('Page Toast',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white
+                ),
+              ),
+            ),
+
+            SizedBox(height: 10,),
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageNavBar()
+              ));
+            },
+              color: Colors.purple,
+              child: Text('Page Nav Bar',
                 style: TextStyle(
                     fontSize: 14,
                     color: Colors.white
