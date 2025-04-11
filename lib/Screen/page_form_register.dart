@@ -18,6 +18,9 @@ class _PageFormRegisterState extends State<PageFormRegister> {
   TextEditingController etTglLahir = new TextEditingController();
   GlobalKey<FormState> keyForm = GlobalKey<FormState>();
 
+  //untuk agama dan jenis kelamin
+  String? valAgama, valJk;
+
   //untuk date picker
   Future selectDate() async{
     DateTime? pickedDate = await showDatePicker(
@@ -115,6 +118,68 @@ class _PageFormRegisterState extends State<PageFormRegister> {
                   ),
                 ),
                 SizedBox(height: 10,),
+                Container(
+                  alignment: Alignment.center,
+                  height: 65,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Colors.black54),
+                    borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: DropdownButton(
+                    value: valAgama,
+                    underline: Container(),
+                    isExpanded: true,
+                    hint: Padding(padding: EdgeInsets.all(10),
+                    child: Text("Pilih Agama"),
+                    ),
+                    items: [
+                      "Islam",
+                      "Kristen",
+                      "Katolik",
+                      "Budha",
+                      "Hindu",
+                    ].map((e){
+                      return DropdownMenuItem(
+                          value: e,
+                          child: Padding(padding: EdgeInsets.all(8),
+                            child: Text(e),
+                          ));
+                    }).toList(),
+                    onChanged: (val){
+                      setState(() {
+                        valAgama = val;
+                      });
+                    },
+                  ),
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Flexible(child: RadioListTile(
+                        value: "Laki-laki", groupValue: valJk,
+                        onChanged: (val){
+                          setState(() {
+                            valJk = val;
+                          });
+                        },
+                      activeColor: Colors.blue,
+                      title: Text("Laki-laki"),
+                    )),
+                    Flexible(child: RadioListTile(
+                      value: "Perempuan", groupValue: valJk,
+                      onChanged: (val){
+                        setState(() {
+                          valJk = val;
+                        });
+                      },
+                      activeColor: Colors.blue,
+                      title: Text("Perempuan"),
+                    )),
+                  ],
+                ),
+                SizedBox(height: 10,),
+                //Dropdown agama dan jenis kelamin nya muncul pada saat di klik submit di toastnya
                 
                 MaterialButton(onPressed: (){
                   //TASK :

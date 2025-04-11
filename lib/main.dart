@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_mi2c/Screen/custom_grid/page_custom_grid.dart';
+import 'package:flutter_app_mi2c/Screen/list_berita/page_list_berita.dart';
+import 'package:flutter_app_mi2c/Screen/maps/map2_marker.dart';
+import 'package:flutter_app_mi2c/Screen/maps/map3_multiple_marker.dart';
+import 'package:flutter_app_mi2c/Screen/maps/maps1.dart';
 import 'package:flutter_app_mi2c/Screen/page_cache_image.dart';
 import 'package:flutter_app_mi2c/Screen/page_dua.dart';
 import 'package:flutter_app_mi2c/Screen/page_empat.dart';
@@ -104,6 +109,53 @@ class PageUtama extends StatelessWidget {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)
                   => PageFormRegister()
+                  ));
+                },
+              ),
+              Divider(),
+              ListTile(
+                title: Text("Custom Grid"),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)
+                  => PageCustomGrid()
+                  ));
+                },
+              ),
+              Divider(),
+              ListTile(
+                title: Text("List Berita"),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)
+                  => PageListBerita()
+                  ));
+                },
+              ),
+              Divider(),
+              ListTile(
+                title: Text("Maps 1"),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)
+                  => PageMap1()
+                  ));
+                },
+              ),
+
+              Divider(),
+              ListTile(
+                title: Text("Map PNP"),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)
+                  => Map2Marker()
+                  ));
+                },
+              ),
+
+              Divider(),
+              ListTile(
+                title: Text("Map Kampus Padang"),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)
+                  => Map3MultipleMarker()
                   ));
                 },
               ),
